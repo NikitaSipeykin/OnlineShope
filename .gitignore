@@ -42,3 +42,7 @@ build/
 ### Log Files ###
 *.trace.db
 *.log
+
+
+*.db.mv.db.mv.db
+TestDataBase.mv.db

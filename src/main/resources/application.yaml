@@ -5,7 +5,7 @@ spring:
     driver-class-name: org.h2.Driver
     # Для работы с h2 в файловом режиме пропишите в похожем виде:
     #url: jdbc:h2:file:C:/Users/.../TestDataBase
-    url: jdbc:h2:file:/Users/niksipeykin/Documents/IT/java/javaHome/SpringOnlineShop/OnlineShope/market-db.mv.db.mv.db;MODE=PostgreSQL
+    url: jdbc:h2:file:/Users/niksipeykin/Documents/IT/java/javaHome/SpringOnlineShop/OnlineShope/TestDataBase;MODE=PostgreSQL
     username: admin
     password: admin
   jpa:

@@ -29,6 +29,6 @@ public class UserService implements UserDetailsService {
                                 user.getPassword(),
                                 user.getAuthorities().stream().map(authority -> new SimpleGrantedAuthority(authority.getName())).collect(Collectors.toSet())
                         )
-                ).orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден"));
+                ).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 }

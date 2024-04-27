@@ -14,25 +14,26 @@ import java.util.stream.Collectors;
 @Controller
 public class ProductController {
 
-    private final ProductService productService;
-    private final ProductMapper productMapper;
+  private final ProductService productService;
+  private final ProductMapper productMapper;
 
-    public ProductController(ProductService productService, ProductMapper productMapper) {
-        this.productService = productService;
-        this.productMapper = productMapper;
-    }
+  public ProductController(ProductService productService, ProductMapper productMapper) {
+    this.productService = productService;
+    this.productMapper = productMapper;
+  }
 
-    @GetMapping
-    public String getAllStudents(Model model) {
-        List<ProductDto> students =  productService.getAll().stream()
-                .map(productMapper::productToProductDto).collect(Collectors.toList());
-        model.addAttribute("products", students);
-        return "product_list";
-    }
+  @GetMapping
+  public String getAllProducts(Model model) {
+    List<ProductDto> students = productService.getAll().stream()
+        .map(productMapper::productToProductDto).collect(Collectors.toList());
+    model.addAttribute("products", students);
+    return "product_list";
+  }
 
-    @GetMapping("/info/{id}")
-    public String getStudentInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("product", productMapper.productToProductDto(productService.findById(id)));
-        return "product_info";
-    }
+  @GetMapping("/info/{id}")
+  public String getProductInfo(@PathVariable Long id, Model model) {
+    model.addAttribute("product", productMapper.productToProductDto(productService.findById(id)
+        .orElse(null)));
+    return "product_info";
+  }
 }
